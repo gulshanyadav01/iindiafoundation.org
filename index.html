@@ -1,216 +1,364 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link href='https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css' rel='stylesheet'>
-        <link rel="stylesheet" href="assets/css/styles.css">
-        <title>I India Foundation</title>
-    </head>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="assets/css/styles.css" />
+    <title>I India Foundation</title>
     <style>
-        .nav__link.button:hover {
-            color: white;
-        }
-        .purpose__container {
+      .nav__link.button:hover {
+        color: white;
+      }
+      .purpose__container {
         display: grid;
         gap: 1rem;
         grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
         margin-top: 2rem;
-    }
+      }
 
-    .purpose__card {
+      .purpose__card {
         background-color: #fff;
         border-radius: 10px;
         padding: 2rem;
         box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
         text-align: left;
-    }
+      }
 
-    .purpose__title {
+      .purpose__title {
         font-size: 1.5rem;
         font-weight: 700;
         margin-bottom: 1rem;
-    }
+      }
 
-    .purpose__description {
+      .purpose__description {
         font-size: 1rem;
         line-height: 1.6;
-    }
+      }
 
+      /* QR Code Modal Styles */
+      .qr-modal {
+        position: fixed;
+        z-index: 1000;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .qr-modal-content {
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 10px;
+        position: relative;
+        width: 80%;
+        max-width: 300px;
+        text-align: center;
+      }
+
+      .qr-modal-content .close {
+        position: absolute;
+        top: 10px;
+        right: 15px;
+        font-size: 24px;
+        cursor: pointer;
+      }
     </style>
-    <body>
+  </head>
+  <body>
+    <!--========== SCROLL TOP ==========-->
+    <a href="index.html#" class="scrolltop" id="scroll-top">
+      <i class="bx bx-chevron-up scrolltop__icon"></i>
+    </a>
 
-        <!--========== SCROLL TOP ==========-->
-        <a href="index.html#" class="scrolltop" id="scroll-top">
-            <i class='bx bx-chevron-up scrolltop__icon'></i>
-        </a>
-
-        <!--========== HEADER ==========-->
-<header class="l-header" id="header">
-    <nav class="nav bd-container">
+    <!--========== HEADER ==========-->
+    <header class="l-header" id="header">
+      <nav class="nav bd-container">
         <a href="index.html#" class="nav__logo">
-            <img src="iindiafoundation_logo.png" style="height: 60px; width: 150px;"  alt="iindiafoundation.org"/>
+          <img
+            src="iindiafoundation_logo.png"
+            style="height: 60px; width: 150px;"
+            alt="iindiafoundation.org"
+          />
         </a>
 
         <div class="nav__menu" id="nav-menu">
-            <ul class="nav__list">
-                <li class="nav__item"><a href="index.html#home" class="nav__link active-link">Home</a></li>
-                <li class="nav__item"><a href="index.html#about" class="nav__link">About Us</a></li>
-                <li class="nav__item"><a href="index.html#purpose" class="nav__link">Our Purpose</a></li>
-                <li class="nav__item"><a href="index.html#team" class="nav__link">Our Team</a></li>
-                <li class="nav__item"><a href="index.html#Gallery" class="nav__link">Gallery</a></li>
-                <li class="nav__item"><a href="index.html#contact" class="nav__link">Contact Us</a></li>
-                <li class="nav__item"><a href="http://example.com/donate" target="_blank" rel="noopener noreferrer" class="nav__link button">Donate Now</a></li>
-            </ul>
+          <ul class="nav__list">
+            <li class="nav__item">
+              <a href="index.html#home" class="nav__link active-link">Home</a>
+            </li>
+            <li class="nav__item">
+              <a href="index.html#about" class="nav__link">About Us</a>
+            </li>
+            <li class="nav__item">
+              <a href="index.html#purpose" class="nav__link">Our Purpose</a>
+            </li>
+            <li class="nav__item">
+              <a href="index.html#team" class="nav__link">Our Team</a>
+            </li>
+            <li class="nav__item">
+              <a href="index.html#Gallery" class="nav__link">Gallery</a>
+            </li>
+            <li class="nav__item">
+              <a href="index.html#contact" class="nav__link">Contact Us</a>
+            </li>
+            <li class="nav__item">
+              <!-- The Donate Now button -->
+              <a
+                href="http://example.com/donate"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="nav__link button"
+                >Donate Now</a
+              >
+            </li>
+          </ul>
         </div>
 
         <div class="nav__toggle" id="nav-toggle">
-            <i class='bx bx-menu'></i>
+          <i class="bx bx-menu"></i>
         </div>
-    </nav>
-</header>
+      </nav>
+    </header>
 
-        <main class="l-main">
-            <!--========== HOME SECTION ==========-->
-            <section class="home" id="home">
-                <div class="home__container bd-container bd-grid">
-                    <div class="home__data">
-                        <h1 class="home__title"><span style="color:#FF9933;">Our</span> Vision</h1>
-                        <h4 class="home__subtitle">To transform the lives of every child through quality education and community empowerment.</h4>
-                    </div>
-                    <img src="assets/img/iindiafoundation_child_vision_image.jpg" alt="Children Learning" class="home__img">
-                </div>
-            </section>
+    <main class="l-main">
+      <!--========== HOME SECTION ==========-->
+      <section class="home" id="home">
+        <div class="home__container bd-container bd-grid">
+          <div class="home__data">
+            <h1 class="home__title">
+              <span style="color:#FF9933;">Our</span> Vision
+            </h1>
+            <h4 class="home__subtitle">
+              To transform the lives of every child through quality education
+              and community empowerment.
+            </h4>
+          </div>
+          <img
+            src="assets/img/iindiafoundation_child_vision_image.jpg"
+            alt="Children Learning"
+            class="home__img"
+          />
+        </div>
+      </section>
 
-            <!--========== MISSION SECTION ==========-->
-            <section class="home" id="mission">
-                <div class="home__container bd-container bd-grid">
-                    <div class="home__data">
-                        <h1 class="home__title"><span style="color:#FF9933;">Our</span> Mission</h1>
-                        <h4 class="home__subtitle">To build a community of shared partnership with today's and tomorrow's leaders, unlocking the potential of every child.</h4>
-                    </div>
-                    <img src="assets/img/school_going_children.png" alt="Empowering Children" class="home__img">
-                </div>
-            </section>
+      <!--========== MISSION SECTION ==========-->
+      <section class="home" id="mission">
+        <div class="home__container bd-container bd-grid">
+          <div class="home__data">
+            <h1 class="home__title">
+              <span style="color:#FF9933;">Our</span> Mission
+            </h1>
+            <h4 class="home__subtitle">
+              To build a community of shared partnership with today's and tomorrow's
+              leaders, unlocking the potential of every child.
+            </h4>
+          </div>
+          <img
+            src="assets/img/school_going_children.png"
+            alt="Empowering Children"
+            class="home__img"
+          />
+        </div>
+      </section>
 
-            <!--========== ABOUT US SECTION ==========-->
-            <section class="about section bd-container" id="about">
-                <div class="about__container bd-grid">
-                    <div class="about__data">
-                        <span class="section-subtitle about__initial">About Us</span>
-                        <h2 class="section-title about__initial">Empowering Future Leaders</h2>
-                        <p class="about__description">At I India Foundation, we envision a brighter tomorrow by nurturing young minds through holistic education. Our mission extends beyond empowering children—we're committed to fostering socio-emotional growth, cultivating leadership skills, and creating lasting impact by investing in capacity building for teachers and communities. Together, we empower not just individuals, but entire ecosystems, to drive sustainable change and build a stronger future.</p>
-                    </div>
-                    <img src="assets/img/iindiafoundation_uttarkhand_culture_image.jpg" alt="About Us" class="about__img">
-                </div>
-            </section>
+      <!--========== ABOUT US SECTION ==========-->
+      <section class="about section bd-container" id="about">
+        <div class="about__container bd-grid">
+          <div class="about__data">
+            <span class="section-subtitle about__initial">About Us</span>
+            <h2 class="section-title about__initial">Empowering Future Leaders</h2>
+            <p class="about__description">
+              At I India Foundation, we envision a brighter tomorrow by nurturing young
+              minds through holistic education. Our mission extends beyond empowering
+              children—we're committed to fostering socio-emotional growth, cultivating
+              leadership skills, and creating lasting impact by investing in capacity
+              building for teachers and communities. Together, we empower not just
+              individuals, but entire ecosystems, to drive sustainable change and build a
+              stronger future.
+            </p>
+          </div>
+          <img
+            src="assets/img/iindiafoundation_uttarkhand_culture_image.jpg"
+            alt="About Us"
+            class="about__img"
+          />
+        </div>
+      </section>
 
-            <!--========== OUR PURPOSE SECTION ==========-->
-            <section class="purpose section bd-container" id="purpose">
-    <span class="section-subtitle">Purpose</span>
-    <h2 class="section-title">Our Core Programs</h2>
+      <!--========== OUR PURPOSE SECTION ==========-->
+      <section class="purpose section bd-container" id="purpose">
+        <span class="section-subtitle">Purpose</span>
+        <h2 class="section-title">Our Core Programs</h2>
 
-    <div class="purpose__container bd-grid">
-        <div class="purpose__card">
+        <div class="purpose__container bd-grid">
+          <div class="purpose__card">
             <h3 class="purpose__title">Together We Teach</h3>
             <p class="purpose__description">
-                Through impactful classroom interventions, we empower students to unlock their potential with a focus on education for sustainability, self-reliance, and growth. Our mission is to create enriching environments where learning goes beyond academics, fostering skills that prepare students to thrive and make meaningful contributions in a changing world.
+              Through impactful classroom interventions, we empower students to unlock
+              their potential with a focus on education for sustainability, self-reliance,
+              and growth. Our mission is to create enriching environments where learning
+              goes beyond academics, fostering skills that prepare students to thrive and
+              make meaningful contributions in a changing world.
             </p>
-        </div>
+          </div>
 
-        <div class="purpose__card">
+          <div class="purpose__card">
             <h3 class="purpose__title">Beyond Books</h3>
             <p class="purpose__description">
-                Engaging children with extracurricular activities, focusing on 21st-century skill development and socio-emotional growth.
+              Engaging children with extracurricular activities, focusing on 21st-century
+              skill development and socio-emotional growth.
             </p>
-        </div>
+          </div>
 
-        <div class="purpose__card">
+          <div class="purpose__card">
             <h3 class="purpose__title">Transformation of Leadership</h3>
             <p class="purpose__description">
-                Empowering students and school leaders with a vision rooted in values and unwavering commitment, we inspire them to uplift their communities. By fostering purposeful leadership, we aim to build a future where education drives positive change, resilience, and growth for all.
+              Empowering students and school leaders with a vision rooted in values and
+              unwavering commitment, we inspire them to uplift their communities. By
+              fostering purposeful leadership, we aim to build a future where education
+              drives positive change, resilience, and growth for all.
             </p>
+          </div>
         </div>
+      </section>
+
+      <!--========== TEAM SECTION ==========-->
+      <section class="menu section bd-container" id="team">
+        <span class="section-subtitle">Our Team</span>
+        <h2 class="section-title">Meet Our Change Makers</h2>
+
+        <div class="menu__container bd-grid">
+          <div class="menu__content">
+            <img src="assets/img/suraj.jpeg" alt="Team Member" class="menu__img" />
+            <h3 class="menu__name">Suraj Chhetri</h3>
+            <span class="menu__detail">Founder &amp; CEO</span>
+          </div>
+
+          <div class="menu__content">
+            <img src="assets/img/kavita.jpeg" alt="Team Member" class="menu__img" />
+            <h3 class="menu__name">Kavita Pokhriyal</h3>
+            <span class="menu__detail">Director</span>
+          </div>
+          <!--
+          <div class="menu__content">
+            <img src="assets/img/gulshan_mon.jpeg" alt="Team Member" class="menu__img" />
+            <h3 class="menu__name">Gulshan Yadav</h3>
+            <span class="menu__detail">CTO</span>
+          </div>
+          -->
+
+          <div class="menu__content">
+            <img
+              src="assets/img/jay%20jataniya.jpeg"
+              alt="Team Member"
+              class="menu__img"
+            />
+            <h3 class="menu__name">Jay Jataniya</h3>
+            <span class="menu__detail">Consultant Org</span>
+          </div>
+          <div class="menu__content">
+            <img src="assets/img/aayush_negi.JPG" alt="Team Member" class="menu__img" />
+            <h3 class="menu__name">Aayush Negi</h3>
+            <span class="menu__detail">Media Head</span>
+          </div>
+        </div>
+      </section>
+
+      <!--========== CONTACT SECTION ==========-->
+      <section class="contact section bd-container" id="contact">
+        <div class="contact__container bd-grid">
+          <div class="contact__data">
+            <span class="section-subtitle contact__initial">Get in Touch</span>
+            <h2 class="section-title contact__initial">Contact Us</h2>
+            <p class="contact__description">
+              Reach out to us to learn more about our programs, volunteer opportunities,
+              or to support our mission.
+            </p>
+          </div>
+          <div class="contact__button">
+            <a href="index.html#" class="button">Contact Us Now</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!--========== FOOTER ==========-->
+    <footer class="footer section bd-container">
+      <div class="footer__container bd-grid">
+        <div class="footer__content">
+          <a href="index.html#" class="footer__logo">I India Foundation</a>
+          <span class="footer__description">Empowering Leaders</span>
+          <div>
+            <a href="index.html#" class="footer__social"
+              ><i class="bx bxl-facebook"></i
+            ></a>
+            <a href="index.html#" class="footer__social"
+              ><i class="bx bxl-instagram"></i
+            ></a>
+            <a href="index.html#" class="footer__social"
+              ><i class="bx bxl-twitter"></i
+            ></a>
+          </div>
+        </div>
+
+        <div class="footer__content">
+          <h3 class="footer__title">Address</h3>
+          <ul>
+            <li>Bajawala, Near Government Primary School</li>
+            <li>P.O New Forest, 248006</li>
+            <li>Email: info@iindiafoundation.org</li>
+          </ul>
+        </div>
+      </div>
+      <p class="footer__copy">&#169; 2024 I India Foundation. All rights reserved.</p>
+    </footer>
+
+    <!-- QR Code Modal -->
+    <div id="qrModal" class="qr-modal" style="display: none;">
+      <div class="qr-modal-content">
+        <span class="close">&times;</span>
+        <img
+          src="assets/img/qr_code.jpg"
+          alt="QR Code for Donation"
+          style="width:100%;"
+        />
+        <p>Scan this code to donate</p>
+      </div>
     </div>
-</section>
 
-            <!--========== TEAM SECTION ==========-->
-            <section class="menu section bd-container" id="team">
-                <span class="section-subtitle">Our Team</span>
-                <h2 class="section-title">Meet Our Change Makers</h2>
+    <script src="https://unpkg.com/scrollreveal"></script>
+    <script src="assets/js/main.js"></script>
+    <script>
+      // Select the Donate Now button and the modal elements
+      const donateBtn = document.querySelector(".nav__link.button");
+      const qrModal = document.getElementById("qrModal");
+      const closeModal = document.querySelector(".qr-modal-content .close");
 
-                <div class="menu__container bd-grid">
-                    <div class="menu__content">
-                        <img src="assets/img/suraj.jpeg" alt="Team Member" class="menu__img">
-                        <h3 class="menu__name">Suraj Chhetri</h3>
-                        <span class="menu__detail">Founder & CEO</span>
-                    </div>
+      // When the Donate Now button is clicked, prevent default navigation and show the modal
+      donateBtn.addEventListener("click", function (e) {
+        e.preventDefault(); // Prevent redirecting to the donation URL
+        qrModal.style.display = "flex";
+      });
 
-                    <div class="menu__content">
-                        <img src="assets/img/kavita.jpeg" alt="Team Member" class="menu__img">
-                        <h3 class="menu__name">Kavita Pokhriyal</h3>
-                        <span class="menu__detail">Director</span>
-                    </div>
-<!--                    <div class="menu__content">-->
-<!--                        <img src="assets/img/gulshan_mon.jpeg" alt="Team Member" class="menu__img">-->
-<!--                        <h3 class="menu__name">Gulshan Yadav</h3>-->
-<!--                        <span class="menu__detail">CTO</span>-->
-<!--                    </div>-->
+      // When the close button is clicked, hide the modal
+      closeModal.addEventListener("click", function () {
+        qrModal.style.display = "none";
+      });
 
-                    <div class="menu__content">
-                        <img src="assets/img/jay%20jataniya.jpeg" alt="Team Member" class="menu__img">
-                        <h3 class="menu__name">Jay Jataniya</h3>
-                        <span class="menu__detail">Consultant Org</span>
-                    </div>
-                    <div class="menu__content">
-                        <img src="assets/img/aayush_negi.JPG" alt="Team Member" class="menu__img">
-                        <h3 class="menu__name">Aayush Negi</h3>
-                        <span class="menu__detail">Media Head</span>
-                    </div>
-
-                </div>
-            </section>
-
-            <!--========== CONTACT SECTION ==========-->
-            <section class="contact section bd-container" id="contact">
-                <div class="contact__container bd-grid">
-                    <div class="contact__data">
-                        <span class="section-subtitle contact__initial">Get in Touch</span>
-                        <h2 class="section-title contact__initial">Contact Us</h2>
-                        <p class="contact__description">Reach out to us to learn more about our programs, volunteer opportunities, or to support our mission.</p>
-                    </div>
-                    <div class="contact__button">
-                        <a href="index.html#" class="button">Contact Us Now</a>
-                    </div>
-                </div>
-            </section>
-        </main>
-
-        <!--========== FOOTER ==========-->
-        <footer class="footer section bd-container">
-            <div class="footer__container bd-grid">
-                <div class="footer__content">
-                    <a href="index.html#" class="footer__logo">I India Foundation</a>
-                    <span class="footer__description">Empowering Leaders</span>
-                    <div>
-                        <a href="index.html#" class="footer__social"><i class='bx bxl-facebook'></i></a>
-                        <a href="index.html#" class="footer__social"><i class='bx bxl-instagram'></i></a>
-                        <a href="index.html#" class="footer__social"><i class='bx bxl-twitter'></i></a>
-                    </div>
-                </div>
-
-                <div class="footer__content">
-                    <h3 class="footer__title">Address</h3>
-                    <ul>
-                        <li>Bajawala, Near Government Primary School</li>
-                        <li>P.O New Forest, 248006</li>
-                        <li>Email: info@iindiafoundation.org</li>
-                    </ul>
-                </div>
-            </div>
-            <p class="footer__copy">&#169; 2024 I India Foundation. All rights reserved.</p>
-        </footer>
-        <script src="https://unpkg.com/scrollreveal"></script>
-        <script src="assets/js/main.js"></script>
-    </body>
+      // Hide the modal if the user clicks outside the modal content
+      window.addEventListener("click", function (e) {
+        if (e.target === qrModal) {
+          qrModal.style.display = "none";
+        }
+      });
+    </script>
+  </body>
 </html>
